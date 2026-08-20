@@ -1,0 +1,1006 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mishthy Yog Sadhna | Reiki, Sound Healing & Counselling by Sapna Kulshreshtha</title>
+<meta name="description" content="Reiki Healing, Sound Healing & Personal Counselling with Sapna Kulshreshtha — Reiki Grand Master, Certified Hypnotherapist & Two-Time Josh Talks Speaker." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  /* ============ DESIGN TOKENS ============ */
+  :root{
+    --bg-deep:#150c20;
+    --bg-deep-2:#1f1330;
+    --bg-panel:#271a3b;
+    --panel-line:rgba(246,239,228,0.10);
+    --ink:#f7f0e4;
+    --muted:rgba(247,240,228,0.68);
+    --muted-2:rgba(247,240,228,0.5);
+    --gold:#d1a05c;
+    --gold-soft:#e9c78f;
+    --gold-deep:#a97a3c;
+    --whatsapp:#3fb87f;
+
+    --root:#e15c4d;
+    --sacral:#ef9a49;
+    --solar:#f0c94e;
+    --heart:#6bae8c;
+    --throat:#4f96c9;
+    --thirdeye:#8577cf;
+    --crown:#b083d9;
+
+    --radius-lg:32px;
+    --radius-md:20px;
+    --radius-sm:13px;
+    --shadow-deep:0 30px 90px rgba(8,4,14,0.55);
+    --shadow-soft:0 16px 46px rgba(8,4,14,0.35);
+    --serif:"Fraunces", Georgia, serif;
+    --sans:"Manrope", system-ui, sans-serif;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:var(--sans);
+    color:var(--ink);
+    background:var(--bg-deep);
+    line-height:1.6;
+    overflow-x:hidden;
+    width: 100%;
+    -webkit-text-size-adjust: 100%;
+  }
+  html {
+    overflow-x: hidden;
+    width: 100%;
+  }
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  button{font-family:inherit;}
+  .container{width:min(1120px, calc(100% - 40px)); margin-inline:auto;}
+  @media (max-width:640px){ .container{width:min(100%, calc(100% - 32px));} }
+
+  ::selection{background:var(--gold); color:#1a0f26;}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+
+  /* ============ AMBIENT CHAKRA FIELD (background, whole page) ============ */
+  .chakra-field{
+    position:fixed;
+    inset:0;
+    z-index:0;
+    pointer-events:none;
+    overflow:hidden;
+    background:
+      radial-gradient(circle at 18% 8%, rgba(133,119,207,0.16), transparent 34%),
+      radial-gradient(circle at 85% 18%, rgba(209,160,92,0.14), transparent 32%),
+      radial-gradient(circle at 50% 100%, rgba(107,174,140,0.10), transparent 40%),
+      linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-deep-2) 55%, var(--bg-deep) 100%);
+  }
+  .chakra-orb{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(46px);
+    opacity:0.30;
+    animation:orbBreathe 9s ease-in-out infinite;
+  }
+  @keyframes orbBreathe{
+    0%,100%{ transform:scale(1); opacity:0.24; }
+    50%{ transform:scale(1.18); opacity:0.4; }
+  }
+
+  /* subtle rotating mandala line-art, very low opacity, purely atmospheric */
+  .mandala-ring{
+    position:absolute;
+    border:1px solid rgba(233,199,143,0.08);
+    border-radius:50%;
+    animation:mandalaSpin 90s linear infinite;
+  }
+  @media (max-width: 640px) {
+    .mandala-ring:nth-child(1) { width: 400px !important; height: 400px !important; }
+    .mandala-ring:nth-child(2) { width: 300px !important; height: 300px !important; }
+  }
+  @keyframes mandalaSpin{ to{ transform:rotate(360deg); } }
+
+  /* ============ TOP BAR ============ */
+  .topbar{
+    position:sticky; top:0; z-index:100;
+    backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px);
+    background:rgba(21,12,32,0.85);
+    border-bottom:1px solid var(--panel-line);
+  }
+  .promo-banner {
+    background: var(--gold);
+    color: #1a0f26;
+    padding: 8px 0;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 101;
+  }
+  .promo-banner .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 4px 12px;
+  }
+  .promo-banner .timer {
+    font-weight: 900;
+    font-size: 14px;
+    font-variant-numeric: tabular-nums;
+  }
+  @media (max-width: 480px) {
+    .promo-banner { font-size: 10px; padding: 10px 0; }
+    .promo-banner .timer { font-size: 13px; width: 100%; }
+  }
+  .topbar-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    gap:14px; padding:12px 0;
+  }
+  .brand{ display:flex; align-items:center; gap:10px; }
+  .logo-mark{
+    width:40px; height:40px; border-radius:50%; flex:0 0 40px;
+    background:white;
+    display:grid; place-items:center;
+    box-shadow:0 0 0 2px rgba(247,240,228,0.14), 0 8px 22px rgba(0,0,0,0.4);
+  }
+  .logo-mark img{ width:100%; height:100%; border-radius:50%; object-fit:cover; }
+  .logo-mark span{
+    width:70%; height:70%; border-radius:50%; background:var(--bg-deep);
+    display:grid; place-items:center; font-family:var(--serif); font-weight:600; font-size:14px; color:var(--gold-soft);
+  }
+  .brand-name{ font-family:var(--serif); font-weight:600; font-size:16px; letter-spacing:-0.01em; line-height:1.15; flex-shrink: 1; }
+  .brand-name small{ display:block; font-family:var(--sans); font-weight:600; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted-2); margin-top:2px; }
+  @media (max-width: 420px) {
+    .brand-name { font-size: 13.5px; }
+    .brand-name small { font-size: 8px; letter-spacing: 0.06em; }
+    .logo-mark { width: 34px; height: 34px; flex: 0 0 34px; }
+    .topbar-inner { gap: 10px; }
+  }
+
+  .topbar-actions{ display:flex; align-items:center; gap:8px; }
+  .icon-btn{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:40px; height:40px; border-radius:50%;
+    border:1px solid rgba(247,240,228,0.16);
+    background:rgba(247,240,228,0.05);
+    transition:transform .22s ease, background .22s ease, border-color .22s ease;
+  }
+  .icon-btn:hover{ transform:translateY(-2px); background:rgba(247,240,228,0.1); }
+  .icon-btn.whatsapp{ border-color:rgba(63,184,127,0.5); color:var(--whatsapp); }
+  .icon-btn.call{ border-color:rgba(209,160,92,0.5); color:var(--gold-soft); }
+
+  /* ============ SECTION SHELLS ============ */
+  .section{ position:relative; z-index:1; padding:88px 0; }
+  @media (max-width:680px){ .section{ padding:60px 0; } }
+
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:9px;
+    padding:8px 14px; border-radius:999px;
+    border:1px solid rgba(209,160,92,0.4);
+    background:rgba(209,160,92,0.08);
+    color:var(--gold-soft);
+    font-size:11.5px; font-weight:700; letter-spacing:0.13em; text-transform:uppercase;
+  }
+  .eyebrow::before{
+    content:""; width:7px; height:7px; border-radius:50%;
+    background:var(--gold); box-shadow:0 0 0 5px rgba(209,160,92,0.18);
+  }
+
+  .section-title{
+    margin-top:16px;
+    font-family:var(--serif);
+    font-weight:600;
+    font-size:clamp(30px, 4.4vw, 52px);
+    line-height:1.08;
+    letter-spacing:-0.02em;
+    max-width:760px;
+  }
+  .section-sub{
+    margin-top:16px;
+    max-width:620px;
+    color:var(--muted);
+    font-size:clamp(15px, 1.3vw, 17px);
+  }
+  .center{ text-align:center; }
+  .center .section-title, .center .section-sub, .center .eyebrow{ margin-inline:auto; }
+
+  .reveal{ opacity:0; transform:translateY(22px); transition:opacity .7s ease, transform .7s ease; }
+  .reveal.visible{ opacity:1; transform:translateY(0); }
+
+  /* ============ CTA BUTTONS ============ */
+  .cta-row{ display:flex; flex-wrap:wrap; gap:14px; }
+  .center .cta-row{ justify-content:center; }
+  @media (max-width: 640px) {
+    .cta-row { flex-direction: column; width: 100%; align-items: stretch; }
+    .cta-row .btn { width: 100%; }
+  }
+  .btn{
+    position:relative; overflow:hidden; isolation:isolate;
+    display:inline-flex; align-items:center; justify-content:center; gap:10px;
+    min-height:56px; padding:15px 26px; border-radius:999px;
+    font-weight:800; font-size:15px; letter-spacing:-0.01em;
+    border:0; cursor:pointer; transition:transform .25s ease, box-shadow .25s ease, filter .25s ease;
+  }
+  .btn:hover{ transform:translateY(-3px); filter:brightness(1.05); }
+  .btn::after{
+    content:""; position:absolute; top:0; left:-90%; width:55%; height:100%;
+    background:linear-gradient(120deg, transparent, rgba(255,255,255,0.35), transparent);
+    transform:skewX(-18deg); transition:left .7s ease; z-index:1;
+  }
+  .btn:hover::after{ left:135%; }
+  .btn span{ position:relative; z-index:2; display:inline-flex; align-items:center; gap:9px; }
+
+  .btn-whatsapp{
+    color:#0d2b1c;
+    background:linear-gradient(135deg, #59d69a, var(--whatsapp) 60%, #2e9663);
+    box-shadow:0 20px 46px rgba(63,184,127,0.28), inset 0 1px 0 rgba(255,255,255,0.25);
+  }
+  .btn-call{
+    color:#2a1608;
+    background:linear-gradient(135deg, var(--gold-soft), var(--gold) 55%, var(--gold-deep));
+    box-shadow:0 20px 46px rgba(209,160,92,0.26), inset 0 1px 0 rgba(255,255,255,0.3);
+  }
+  .btn-ghost{
+    color:var(--ink);
+    background:rgba(247,240,228,0.06);
+    border:1px solid rgba(247,240,228,0.22);
+  }
+
+  /* ============ HERO ============ */
+  .hero{ padding:56px 0 40px; position:relative; }
+  .hero-inner{ display:flex; flex-direction:column; align-items:center; text-align:center; }
+
+  .hero .eyebrow{ margin-bottom:2px; }
+  .hero h1{
+    margin-top:18px;
+    font-family:var(--serif); font-weight:600;
+    font-size:clamp(32px, 8vw, 62px);
+    line-height:1.06; letter-spacing:-0.025em;
+    max-width:820px;
+  }
+  .hero h1 em{
+    font-style:normal;
+    background:linear-gradient(120deg, var(--gold-soft), var(--gold) 45%, var(--thirdeye));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .hero-sub{
+    margin-top:18px; max-width:600px; color:var(--muted); font-size:clamp(15px,1.5vw,18px);
+  }
+
+  /* chakra column + video frame */
+  .chakra-video-wrap{
+    position:relative;
+    margin:40px auto 8px;
+    width:min(340px, 84vw);
+  }
+  .chakra-column{
+    position:absolute; left:50%; top:-30px; bottom:-30px;
+    transform:translateX(-50%);
+    width:6px; z-index:0;
+    background:linear-gradient(180deg, var(--crown), var(--thirdeye), var(--throat), var(--heart), var(--solar), var(--sacral), var(--root));
+    opacity:0.28; border-radius:6px; filter:blur(1px);
+  }
+  .chakra-dot{
+    position:absolute; left:50%; transform:translateX(-50%);
+    width:14px; height:14px; border-radius:50%;
+    box-shadow:0 0 18px 4px currentColor;
+    animation:chakraPulse 2.6s ease-in-out infinite;
+  }
+  @keyframes chakraPulse{ 0%,100%{ opacity:0.55; transform:translateX(-50%) scale(0.85);} 50%{ opacity:1; transform:translateX(-50%) scale(1.15);} }
+
+  .video-frame{
+    position:relative; z-index:2;
+    padding:9px; border-radius:32px;
+    box-shadow:var(--shadow-deep);
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .video-frame::before {
+    content: "";
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 200%; height: 200%;
+    margin: -100% 0 0 -100%;
+    background: conic-gradient(from 0deg, var(--root), var(--sacral), var(--solar), var(--heart), var(--throat), var(--thirdeye), var(--crown), var(--root));
+    animation: ringSpin 14s linear infinite;
+    z-index: -1;
+  }
+  @keyframes ringSpin{ to{ transform:rotate(360deg); } }
+  .video-frame-inner{
+    border-radius:24px; overflow:hidden; background:#0d0714;
+    aspect-ratio:9/16;
+    position:relative;
+  }
+  .video-frame video, .video-frame-inner .video-fallback{
+    width:100%; height:100%; object-fit:cover; display:block;
+    transition: opacity 0.5s ease;
+  }
+  .video-fallback{
+    position: absolute; top: 0; left: 0; z-index: 5;
+    display:none; flex-direction:column; align-items:center; justify-content:center; gap:14px;
+    background:
+      radial-gradient(circle at 50% 30%, rgba(209,160,92,0.22), transparent 60%),
+      radial-gradient(circle at 50% 90%, rgba(133,119,207,0.2), transparent 60%),
+      linear-gradient(160deg, #241736, #150c20);
+    color:var(--muted); text-align:center; padding:20px;
+  }
+  .play-glyph{
+    width:60px; height:60px; border-radius:50%;
+    background:rgba(247,240,228,0.12); border:1px solid rgba(247,240,228,0.3);
+    display:grid; place-items:center; font-size:20px; color:var(--gold-soft);
+  }
+  .video-fallback small{ font-size:11.5px; color:var(--muted-2); max-width:220px; line-height:1.5; }
+
+  /* countdown pill */
+  .countdown-wrap{ margin-top:26px; display:flex; flex-direction:column; align-items:center; gap:8px; }
+  .countdown-label{ font-size:11.5px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted-2); }
+  .countdown{
+    display:flex; align-items:center; gap:6px;
+    padding:10px 16px; border-radius:999px;
+    background:rgba(247,240,228,0.06);
+    border:1px solid rgba(209,160,92,0.35);
+    box-shadow:inset 0 0 22px rgba(0,0,0,0.25);
+  }
+  .cd-box{ min-width:40px; text-align:center; }
+  .cd-num{ display:block; font-family:var(--serif); font-weight:600; font-size:21px; color:var(--gold-soft); line-height:1; }
+  .cd-unit{ display:block; margin-top:2px; font-size:8.5px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted-2); }
+  .cd-colon{ font-family:var(--serif); font-size:20px; color:var(--gold); margin-bottom:8px; animation:colonBlink 1s step-end infinite; }
+  @keyframes colonBlink{ 50%{ opacity:0.25; } }
+
+  .hero .cta-row{ margin-top:28px; }
+
+  /* credential marquee */
+  .marquee-wrap{
+    margin-top:52px; padding:16px 0;
+    border-top:1px solid var(--panel-line); border-bottom:1px solid var(--panel-line);
+    overflow:hidden;
+  }
+  .marquee-track{
+    display:flex; gap:38px; width:max-content;
+    animation:marqueeScroll 26s linear infinite;
+  }
+  @keyframes marqueeScroll{ from{ transform:translateX(0);} to{ transform:translateX(-50%);} }
+  .marquee-item{
+    display:flex; align-items:center; gap:8px;
+    font-size:13px; font-weight:700; color:var(--muted); white-space:nowrap;
+  }
+  .marquee-item .dot{ width:5px; height:5px; border-radius:50%; background:var(--gold); }
+
+  /* ============ ABOUT / CREDENTIALS ============ */
+  .about-grid{ display:grid; grid-template-columns:1fr; gap:36px; margin-top:44px; align-items:start; }
+  @media (min-width:900px){ .about-grid{ grid-template-columns:0.85fr 1.15fr; gap:50px; } }
+
+  .about-card{
+    padding:30px; border-radius:var(--radius-lg);
+    background:linear-gradient(160deg, rgba(247,240,228,0.05), rgba(247,240,228,0.015));
+    border:1px solid var(--panel-line); box-shadow:var(--shadow-soft);
+  }
+  .about-card p{ color:var(--muted); font-size:15.5px; }
+  .about-card p + p{ margin-top:14px; }
+  .about-name{ font-family:var(--serif); font-size:26px; font-weight:600; color:var(--ink); }
+  .about-role{ margin-top:4px; color:var(--gold-soft); font-size:13px; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; }
+
+  .cred-grid{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin-top:6px; }
+  @media (min-width:560px){ .cred-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
+  @media (max-width:440px) { .cred-grid { grid-template-columns: 1fr; } }
+  .cred-badge{
+    display:flex; align-items:center; gap:11px;
+    padding:14px 15px; border-radius:16px;
+    background:rgba(247,240,228,0.045);
+    border:1px solid var(--panel-line);
+    font-size:13.5px; font-weight:700; color:var(--ink);
+    transition:transform .22s ease, border-color .22s ease, background .22s ease;
+  }
+  .cred-badge:hover{ transform:translateY(-3px); border-color:rgba(209,160,92,0.4); background:rgba(209,160,92,0.06); }
+  .cred-badge .tick{
+    flex:0 0 26px; width:26px; height:26px; border-radius:50%;
+    display:grid; place-items:center; font-weight:900; font-size:13px;
+    background:rgba(63,184,127,0.16); color:var(--whatsapp);
+  }
+
+  /* ============ SERVICES ============ */
+  .services-grid{ display:grid; grid-template-columns:1fr; gap:20px; margin-top:46px; }
+  @media (min-width:840px){ .services-grid{ grid-template-columns:repeat(3,minmax(0,1fr)); } }
+  .service-card{
+    padding:32px 26px; border-radius:var(--radius-lg);
+    background:linear-gradient(165deg, rgba(247,240,228,0.06), rgba(247,240,228,0.015));
+    border:1px solid var(--panel-line);
+    box-shadow:var(--shadow-soft);
+    transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+  }
+  .service-card:hover{ transform:translateY(-8px); box-shadow:var(--shadow-deep); border-color:rgba(209,160,92,0.3); }
+  .service-icon{
+    width:56px; height:56px; border-radius:18px; margin-bottom:22px;
+    display:grid; place-items:center; font-size:24px;
+    box-shadow:inset 0 0 0 1px rgba(247,240,228,0.14);
+  }
+  .service-card h3{ font-family:var(--serif); font-size:24px; font-weight:600; margin-bottom:10px; letter-spacing:-0.01em; }
+  .service-card p{ color:var(--muted); font-size:14.5px; }
+  .service-card .learn{ margin-top:18px; display:inline-flex; align-items:center; gap:7px; font-size:13px; font-weight:800; color:var(--whatsapp); }
+
+  /* ============ CHAKRA JOURNEY (signature strip) ============ */
+  .chakra-strip{
+    position:relative; padding:90px 0;
+    background:linear-gradient(180deg, rgba(39,26,59,0.5), rgba(21,12,32,0.9));
+    border-top:1px solid var(--panel-line); border-bottom:1px solid var(--panel-line);
+  }
+  .chakra-row{
+    margin-top:52px; position:relative;
+    display:grid; grid-template-columns:1fr; gap:26px;
+  }
+  @media (max-width: 899px) {
+    .chakra-item {
+      flex-direction: row; text-align: left; gap: 20px;
+      max-width: 400px; margin-inline: auto;
+    }
+    .chakra-item .orb { margin-bottom: 0; flex: 0 0 46px; }
+    .chakra-item p { max-width: 100%; }
+  }
+  @media (min-width:900px){
+    .chakra-row{ grid-template-columns:repeat(7,minmax(0,1fr)); gap:10px; align-items:start; }
+    .chakra-row::before{
+      content:""; position:absolute; top:23px; left:7%; right:7%; height:2px;
+      background:linear-gradient(90deg, var(--root), var(--sacral), var(--solar), var(--heart), var(--throat), var(--thirdeye), var(--crown));
+      opacity:0.4; z-index:0;
+    }
+  }
+  .chakra-item{ position:relative; z-index:1; text-align:center; display:flex; flex-direction:column; align-items:center; }
+  .chakra-item .orb{
+    width:46px; height:46px; border-radius:50%;
+    box-shadow:0 0 0 5px rgba(21,12,32,1), 0 0 22px 3px currentColor;
+    margin-bottom:14px;
+    animation:orbBreatheSmall 3.2s ease-in-out infinite;
+  }
+  @keyframes orbBreatheSmall{ 0%,100%{ transform:scale(1);} 50%{ transform:scale(1.12);} }
+  .chakra-item h4{ font-family:var(--serif); font-size:16px; font-weight:600; }
+  .chakra-item span{ display:block; margin-top:3px; font-size:10.5px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--muted-2); }
+  .chakra-item p{ margin-top:8px; font-size:12.5px; color:var(--muted); max-width:150px; }
+
+  /* ============ TESTIMONIALS ============ */
+  .testi-grid{ display:grid; grid-template-columns:1fr; gap:18px; margin-top:46px; }
+  @media (min-width:720px){ .testi-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
+  @media (min-width:1040px){ .testi-grid{ grid-template-columns:repeat(3,minmax(0,1fr)); } }
+  .testi-card{
+    padding:26px; border-radius:var(--radius-lg);
+    background:linear-gradient(160deg, rgba(247,240,228,0.055), rgba(247,240,228,0.015));
+    border:1px solid var(--panel-line);
+  }
+  .testi-top{ display:flex; align-items:center; gap:12px; margin-bottom:12px; }
+  .avatar{
+    width:46px; height:46px; border-radius:50%; flex:0 0 46px;
+    display:grid; place-items:center; font-weight:800; font-size:14px; color:#1a0f26;
+  }
+  .testi-name{ font-weight:800; font-size:14.5px; }
+  .testi-loc{ font-size:12px; color:var(--muted-2); }
+  .stars{ color:var(--gold); letter-spacing:2px; font-size:13px; margin-bottom:10px; }
+  .testi-card p{ font-size:14.5px; color:var(--muted); }
+
+  /* ============ FINAL CTA ============ */
+  .final-cta{
+    position:relative; padding:70px 34px; border-radius:44px;
+    text-align:center; overflow:hidden;
+    background:
+      radial-gradient(circle at 20% 10%, rgba(209,160,92,0.22), transparent 40%),
+      radial-gradient(circle at 80% 90%, rgba(133,119,207,0.2), transparent 42%),
+      linear-gradient(145deg, #241736, #150c20);
+    border:1px solid var(--panel-line);
+    box-shadow:var(--shadow-deep);
+  }
+  @media (max-width: 640px) {
+    .final-cta { padding: 48px 20px; border-radius: 32px; }
+  }
+  .final-cta h2{ font-family:var(--serif); font-weight:600; font-size:clamp(28px,4.4vw,46px); max-width:640px; margin-inline:auto; letter-spacing:-0.02em; }
+  .final-cta p{ margin:16px auto 26px; max-width:520px; color:var(--muted); }
+
+  /* ============ FOOTER ============ */
+  footer{ padding:36px 0 44px; text-align:center; color:var(--muted-2); font-size:12.5px; line-height:1.7; }
+  footer .foot-brand{ font-family:var(--serif); color:var(--gold-soft); font-size:16px; margin-bottom:8px; }
+
+  /* ============ BOOKING TOAST (bottom-left social proof) ============ */
+  .booking-toast{
+    position:fixed; left:16px; bottom:16px; z-index:80;
+    max-width:min(88vw, 340px);
+    display:flex; align-items:center; gap:12px;
+    padding:12px 14px; border-radius:18px;
+    background:linear-gradient(135deg, rgba(39,26,59,0.96), rgba(21,12,32,0.98));
+    border:1px solid rgba(209,160,92,0.3);
+    box-shadow:0 20px 50px rgba(0,0,0,0.45);
+    transform:translateX(-120%); opacity:0; pointer-events:none;
+    transition:transform .55s cubic-bezier(.22,1,.36,1), opacity .35s ease;
+  }
+  @media (max-width: 680px) {
+    .booking-toast {
+      bottom: 90px;
+      left: 12px;
+      right: 12px;
+      max-width: none;
+    }
+  }
+  .booking-toast.show{ transform:translateX(0); opacity:1; pointer-events:auto; }
+  .toast-avatar{
+    width:42px; height:42px; border-radius:50%; flex:0 0 42px;
+    display:grid; place-items:center; font-weight:800; font-size:13px; color:#1a0f26;
+  }
+  .toast-name{ font-size:13px; font-weight:800; }
+  .toast-msg{ font-size:12px; color:var(--muted); margin-top:1px; }
+  .toast-time{ font-size:10.5px; color:var(--muted-2); margin-top:3px; display:flex; align-items:center; gap:6px; }
+  .toast-dot{ width:6px; height:6px; border-radius:50%; background:var(--whatsapp); box-shadow:0 0 8px 2px rgba(63,184,127,0.6); animation:toastPulse 1.6s ease-in-out infinite; }
+  @keyframes toastPulse{ 0%,100%{ transform:scale(1); opacity:1;} 50%{ transform:scale(0.7); opacity:0.6;} }
+  .toast-close{
+    margin-left:auto; align-self:flex-start; background:none; border:0; color:var(--muted-2);
+    font-size:15px; cursor:pointer; line-height:1; padding:2px;
+  }
+
+  /* sticky mobile action bar */
+  .mobile-actions{
+    display:none; position:fixed; left:0; right:0; bottom:0; z-index:100;
+    gap:8px; padding:10px 12px calc(10px + env(safe-area-inset-bottom));
+    background:rgba(15,9,22,0.98); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
+    border-top:1px solid var(--panel-line);
+    box-shadow: 0 -8px 25px rgba(0,0,0,0.5);
+    box-sizing: border-box;
+    width: 100%;
+  }
+  @media (max-width:680px){
+    .mobile-actions{ display:flex; align-items:center; justify-content:center; }
+    body{ padding-bottom:88px !important; }
+  }
+  .mobile-actions .btn{
+    flex:1 1 0%;
+    min-width:0;
+    min-height:48px;
+    font-size:13.5px;
+    padding:8px 4px;
+    border-radius:12px;
+    white-space:nowrap;
+    box-shadow:none;
+    text-align:center;
+  }
+  .mobile-actions .btn span {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:6px;
+    width:100%;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  .mobile-actions .btn::after { display: none; }
+
+  @media (max-width: 360px) {
+    .mobile-actions { gap: 6px; padding: 8px 8px calc(8px + env(safe-area-inset-bottom)); }
+    .mobile-actions .btn { font-size: 12.5px; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="chakra-field" aria-hidden="true">
+    <div class="chakra-orb" style="width:340px;height:340px; left:-120px; top:6%; background:var(--thirdeye);"></div>
+    <div class="chakra-orb" style="width:280px;height:280px; right:-100px; top:2%; background:var(--gold); animation-delay:2s;"></div>
+    <div class="chakra-orb" style="width:300px;height:300px; left:8%; bottom:6%; background:var(--heart); animation-delay:4s;"></div>
+    <div class="chakra-orb" style="width:260px;height:260px; right:4%; bottom:14%; background:var(--root); animation-delay:1s;"></div>
+    <div class="mandala-ring" style="width:640px;height:640px; left:50%; top:8%; transform:translateX(-50%);"></div>
+    <div class="mandala-ring" style="width:420px;height:420px; left:50%; top:8%; transform:translateX(-50%); animation-direction:reverse;"></div>
+  </div>
+
+  <!-- ============ TOP BAR ============ -->
+  <div class="topbar">
+    <div class="promo-banner">
+      <div class="container">
+        <span>Festive Healing Slots Close In:</span>
+        <span class="timer">
+          <span id="cdH">05</span> : <span id="cdM">23</span> : <span id="cdS">00</span>
+        </span>
+      </div>
+    </div>
+    <div class="container topbar-inner">
+      <div class="brand">
+        <span class="logo-mark">
+          <!-- Replace the src below with your direct logo image URL (e.g. a res.cloudinary.com/... link) -->
+          <img src="https://res.cloudinary.com/dzk8irkax/image/upload/v1787210248/logo.webp" alt="Mishthy Yog Sadhna logo"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{innerHTML:'ॐ'}))" />
+        </span>
+        <div class="brand-name">Mishthy Yog Sadhna
+          <small>Reiki · Sound Healing · Counselling</small>
+        </div>
+      </div>
+      <div class="topbar-actions">
+        <a class="icon-btn whatsapp" href="https://wa.me/918193935267?text=Namaste%2C%20I%27d%20like%20to%20know%20more%20about%20healing%20sessions" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.8-.9-2-1s-.5-.1-.7.1-.8 1-1 1.2-.3.2-.6.1a8 8 0 0 1-2.3-1.4 8.6 8.6 0 0 1-1.6-2c-.2-.3 0-.5.1-.6l.4-.5.3-.4c.1-.1.1-.3 0-.4L9.2 7.3c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.6 1.1 2.8.1.2 2 3 4.8 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4 0-.1-.2-.2-.5-.4z"/><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
+        </a>
+        <a class="icon-btn call" href="tel:+918193935267" aria-label="Call now">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.9 21 3 13.1 3 3.9c0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .8-.2 1l-2.2 2.4z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- ============ HERO ============ -->
+    <header class="hero">
+      <div class="container hero-inner reveal">
+        <div class="eyebrow">Ancient Healing · Modern Peace</div>
+        <h1>Restore Your Energy.<br><em>Reclaim Your Peace.</em></h1>
+        <p class="hero-sub">Reiki Healing, Sound Healing &amp; Personal Counselling with Sapna Kulshreshtha — guiding you gently back to balance, calm and clarity.</p>
+
+        <div class="chakra-video-wrap">
+          <div class="chakra-column" aria-hidden="true">
+            <span class="chakra-dot" style="top:0%; background:var(--crown); color:var(--crown);"></span>
+            <span class="chakra-dot" style="top:16%; background:var(--thirdeye); color:var(--thirdeye); animation-delay:.3s;"></span>
+            <span class="chakra-dot" style="top:33%; background:var(--throat); color:var(--throat); animation-delay:.6s;"></span>
+            <span class="chakra-dot" style="top:50%; background:var(--heart); color:var(--heart); animation-delay:.9s;"></span>
+            <span class="chakra-dot" style="top:67%; background:var(--solar); color:var(--solar); animation-delay:1.2s;"></span>
+            <span class="chakra-dot" style="top:84%; background:var(--sacral); color:var(--sacral); animation-delay:1.5s;"></span>
+            <span class="chakra-dot" style="top:100%; background:var(--root); color:var(--root); animation-delay:1.8s;"></span>
+          </div>
+          <div class="video-frame">
+            <div class="video-frame-inner">
+              <!-- Video using direct src for better autoplay reliability -->
+              <video id="heroVideo"
+                     src="https://res.cloudinary.com/dzk8irkax/video/upload/q_auto,f_auto/Girls_Ladies_ki_problem_solve_call_-_8193935267_Misthy_yog_sadhna_maruti_state_near_simpk.mp4"
+                     poster="https://res.cloudinary.com/dzk8irkax/video/upload/q_auto,f_auto/Girls_Ladies_ki_problem_solve_call_-_8193935267_Misthy_yog_sadhna_maruti_state_near_simpk.jpg"
+                     playsinline webkit-playsinline loop autoplay muted preload="auto" controls>
+              </video>
+              <div class="video-fallback" id="videoFallback" style="cursor:pointer;">
+                <div class="play-glyph">▶</div>
+                <strong style="font-family:var(--serif); font-size:16px;">Sapna's Welcome Message</strong>
+                <small>Tap to play video</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="cta-row">
+          <a class="btn btn-whatsapp" href="https://wa.me/918193935267?text=Namaste%2C%20I%27d%20like%20to%20book%20a%20healing%20session" target="_blank" rel="noopener">
+            <span>
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.8-.9-2-1s-.5-.1-.7.1-.8 1-1 1.2-.3.2-.6.1a8 8 0 0 1-2.3-1.4 8.6 8.6 0 0 1-1.6-2c-.2-.3 0-.5.1-.6l.4-.5.3-.4c.1-.1.1-.3 0-.4L9.2 7.3c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.6 1.1 2.8.1.2 2 3 4.8 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4 0-.1-.2-.2-.5-.4z"/><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
+              Message on WhatsApp
+            </span>
+          </a>
+          <a class="btn btn-call" href="tel:+918193935267">
+            <span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.9 21 3 13.1 3 3.9c0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .8-.2 1l-2.2 2.4z"/></svg>
+              Call +91 81939 35267
+            </span>
+          </a>
+        </div>
+
+        <div class="marquee-wrap">
+          <div class="marquee-track" id="marqueeTrack"></div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ============ ABOUT / CREDENTIALS ============ -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-card reveal">
+            <div class="about-name">Sapna Kulshreshtha</div>
+            <div class="about-role">Founder, Mishthy Yog Sadhna</div>
+            <p>For years, Sapna has helped people quiet an overactive mind, release stored emotional weight, and reconnect with their own sense of calm — through Reiki, sound and gentle guided conversation.</p>
+            <p>Her work blends energy healing with practical counselling, so every session feels personal, safe and rooted in real understanding rather than a one-size-fits-all routine.</p>
+          </div>
+          <div class="reveal">
+            <div class="cred-grid" id="credGrid"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SERVICES ============ -->
+    <section class="section" id="services">
+      <div class="container">
+        <div class="center reveal">
+          <div class="eyebrow">What We Offer</div>
+          <h2 class="section-title">Three paths back to balance.</h2>
+          <p class="section-sub">Every session is shaped around what you're carrying right now — choose what feels right, or let Sapna guide you.</p>
+        </div>
+        <div class="services-grid" id="servicesGrid"></div>
+      </div>
+    </section>
+
+    <!-- ============ CHAKRA JOURNEY (signature) ============ -->
+    <section class="chakra-strip">
+      <div class="container">
+        <div class="center reveal">
+          <div class="eyebrow">The Energy Map</div>
+          <h2 class="section-title">Seven centers. One journey to stillness.</h2>
+          <p class="section-sub">Reiki and sound healing work with your body's seven energy centers — each session gently attends to wherever you feel blocked, heavy or unsettled.</p>
+        </div>
+        <div class="chakra-row" id="chakraRow"></div>
+      </div>
+    </section>
+
+    <!-- ============ TESTIMONIALS ============ -->
+    <section class="section" id="testimonials">
+      <div class="container">
+        <div class="center reveal">
+          <div class="eyebrow">Healing Stories</div>
+          <h2 class="section-title">What people share after a session.</h2>
+        </div>
+        <div class="testi-grid" id="testiGrid"></div>
+      </div>
+    </section>
+
+    <!-- ============ FINAL CTA ============ -->
+    <section class="section">
+      <div class="container">
+        <div class="final-cta reveal">
+          <div class="eyebrow" style="margin-bottom:6px;">Book Your Session</div>
+          <h2>You don't have to carry this heaviness alone anymore.</h2>
+          <p>Sessions available online, anywhere in India, and in person. Reach out directly — Sapna reads every message herself.</p>
+          <div class="cta-row" style="justify-content:center;">
+            <a class="btn btn-whatsapp" href="https://wa.me/918193935267?text=Namaste%2C%20I%27d%20like%20to%20book%20a%20healing%20session" target="_blank" rel="noopener">
+              <span>Message on WhatsApp</span>
+            </a>
+            <a class="btn btn-call" href="tel:+918193935267"><span>Call +91 81939 35267</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="foot-brand">Mishthy Yog Sadhna</div>
+      © <span id="year"></span> Mishthy Yog Sadhna — Sapna Kulshreshtha. All rights reserved.<br />
+      Reiki, Sound Healing &amp; Counselling sessions support holistic well-being, relaxation and self-awareness. They do not replace medical or psychiatric treatment — please consult a qualified healthcare professional for diagnosis, treatment or crisis support.
+    </div>
+  </footer>
+
+  <!-- mobile sticky action bar -->
+  <div class="mobile-actions">
+    <a class="btn btn-whatsapp" href="https://wa.me/918193935267?text=Namaste%2C%20I%27d%20like%20to%20book%20a%20healing%20session" target="_blank" rel="noopener"><span>WhatsApp</span></a>
+    <a class="btn btn-call" href="tel:+918193935267"><span>Call Now</span></a>
+  </div>
+
+  <!-- booking social-proof toast -->
+  <div class="booking-toast" id="bookingToast">
+    <div class="toast-avatar" id="toastAvatar"></div>
+    <div style="flex:1; min-width:0;">
+      <div class="toast-name" id="toastName"></div>
+      <div class="toast-msg" id="toastMsg"></div>
+      <div class="toast-time"><span class="toast-dot"></span><span id="toastTime"></span></div>
+    </div>
+    <button class="toast-close" id="toastClose" aria-label="Dismiss">✕</button>
+  </div>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+/* ---------------- DATA ---------------- */
+var CHAKRA_COLORS = ['var(--root)','var(--sacral)','var(--solar)','var(--heart)','var(--throat)','var(--thirdeye)','var(--crown)'];
+
+var CREDENTIALS = [
+  "Yoga Teacher","Reiki Grand Master","Energy Healing Expert","Certified Hypnotherapist",
+  "Wellness Counselor","Sound Healing Expert","Two-Time Josh Talks Speaker"
+];
+
+var SERVICES = [
+  { icon:"🕉️", color:"var(--thirdeye)", title:"Reiki Healing", desc:"Gentle hands-on or distance energy healing to release blocked energy, ease anxiety and restore a sense of inner calm." },
+  { icon:"🎐", color:"var(--throat)", title:"Sound Healing", desc:"Deeply relaxing sound & vibration therapy that quiets an overactive mind and helps the nervous system truly rest." },
+  { icon:"🤍", color:"var(--heart)", title:"Personal Counselling", desc:"A private, judgment-free conversation space to work through stress, emotions and patterns that keep repeating." }
+];
+
+var CHAKRAS = [
+  { name:"Root", sanskrit:"Muladhara", color:"var(--root)", meaning:"Grounding & safety" },
+  { name:"Sacral", sanskrit:"Svadhishthana", color:"var(--sacral)", meaning:"Emotion & creativity" },
+  { name:"Solar Plexus", sanskrit:"Manipura", color:"var(--solar)", meaning:"Confidence & will" },
+  { name:"Heart", sanskrit:"Anahata", color:"var(--heart)", meaning:"Love & compassion" },
+  { name:"Throat", sanskrit:"Vishuddha", color:"var(--throat)", meaning:"Truth & expression" },
+  { name:"Third Eye", sanskrit:"Ajna", color:"var(--thirdeye)", meaning:"Intuition & clarity" },
+  { name:"Crown", sanskrit:"Sahasrara", color:"var(--crown)", meaning:"Connection & peace" }
+];
+
+var TESTIMONIALS = [
+  { name:"Ananya Sharma", loc:"Delhi", color:"var(--root)", quote:"After my first Reiki session with Sapna ji, I finally slept peacefully for the first time in months." },
+  { name:"Rohit Malhotra", loc:"Mumbai", color:"var(--thirdeye)", quote:"The sound healing session was unlike anything I'd tried before — my mind felt quiet for hours after." },
+  { name:"Kavita Nair", loc:"Bengaluru", color:"var(--heart)", quote:"Sapna's counselling sessions helped me understand patterns I'd been repeating for years. Truly grateful." },
+  { name:"Arjun Kapoor", loc:"Pune", color:"var(--solar)", quote:"I was skeptical about energy healing, but I felt noticeably lighter and calmer after just two sessions." },
+  { name:"Meera Reddy", loc:"Hyderabad", color:"var(--sacral)", quote:"A safe, warm space with zero judgment. Exactly what I needed during a very stressful time." },
+  { name:"Priya Iyer", loc:"Chennai", color:"var(--throat)", quote:"Her guidance around my chakras and energy blocks genuinely changed how I handle daily stress now." }
+];
+
+var TOAST_NAMES = [
+  {name:"Ritu S.", loc:"Delhi", service:"Reiki Healing"},
+  {name:"Karan V.", loc:"Pune", service:"Personal Counselling"},
+  {name:"Sneha M.", loc:"Mumbai", service:"Sound Healing"},
+  {name:"Arvind P.", loc:"Jaipur", service:"Reiki Healing"},
+  {name:"Neha G.", loc:"Bengaluru", service:"Personal Counselling"},
+  {name:"Vikram T.", loc:"Ahmedabad", service:"Sound Healing"},
+  {name:"Pooja D.", loc:"Chandigarh", service:"Reiki Healing"},
+  {name:"Manish K.", loc:"Lucknow", service:"Personal Counselling"}
+];
+
+/* ---------------- RENDER: marquee ---------------- */
+(function(){
+  var track = document.getElementById('marqueeTrack');
+  var items = CREDENTIALS.concat(CREDENTIALS); // duplicate for seamless loop
+  track.innerHTML = items.map(function(c){
+    return '<span class="marquee-item"><span class="dot"></span>' + c + '</span>';
+  }).join('');
+})();
+
+/* ---------------- RENDER: credentials grid ---------------- */
+(function(){
+  var grid = document.getElementById('credGrid');
+  grid.innerHTML = CREDENTIALS.map(function(c){
+    return '<div class="cred-badge"><span class="tick">✓</span>' + c + '</div>';
+  }).join('');
+})();
+
+/* ---------------- RENDER: services ---------------- */
+(function(){
+  var grid = document.getElementById('servicesGrid');
+  grid.innerHTML = SERVICES.map(function(s){
+    return '<div class="service-card reveal">' +
+      '<div class="service-icon" style="background:color-mix(in srgb, ' + s.color + ' 22%, transparent); color:' + s.color + ';">' + s.icon + '</div>' +
+      '<h3>' + s.title + '</h3><p>' + s.desc + '</p>' +
+      '<a class="learn" href="https://wa.me/918193935267?text=Namaste%2C%20I%27d%20like%20to%20know%20more%20about%20' + encodeURIComponent(s.title) + '" target="_blank" rel="noopener">Ask on WhatsApp →</a>' +
+    '</div>';
+  }).join('');
+})();
+
+/* ---------------- RENDER: chakra journey ---------------- */
+(function(){
+  var row = document.getElementById('chakraRow');
+  row.innerHTML = CHAKRAS.map(function(c){
+    return '<div class="chakra-item"><div class="orb" style="background:' + c.color + '; color:' + c.color + ';"></div>' +
+      '<h4>' + c.name + '</h4><span>' + c.sanskrit + '</span><p>' + c.meaning + '</p></div>';
+  }).join('');
+})();
+
+/* ---------------- RENDER: testimonials ---------------- */
+(function(){
+  var grid = document.getElementById('testiGrid');
+  grid.innerHTML = TESTIMONIALS.map(function(t){
+    var initials = t.name.split(' ').map(function(w){return w[0];}).join('');
+    return '<div class="testi-card reveal">' +
+      '<div class="testi-top"><div class="avatar" style="background:' + t.color + ';">' + initials + '</div>' +
+      '<div><div class="testi-name">' + t.name + '</div><div class="testi-loc">' + t.loc + '</div></div></div>' +
+      '<div class="stars">★★★★★</div><p>&ldquo;' + t.quote + '&rdquo;</p></div>';
+  }).join('');
+})();
+
+/* ---------------- COUNTDOWN (default 5h 23m, live ticking) ---------------- */
+(function(){
+  var totalMs = (5*3600 + 23*60) * 1000;
+  var deadline = Date.now() + totalMs;
+  var hEl=document.getElementById('cdH'), mEl=document.getElementById('cdM'), sEl=document.getElementById('cdS');
+  function pad(n){ return n<10 ? '0'+n : ''+n; }
+  function tick(){
+    var rem = deadline - Date.now();
+    if(rem <= 0){ hEl.textContent='00'; mEl.textContent='00'; sEl.textContent='00'; return; }
+    var h = Math.floor(rem/3600000);
+    var m = Math.floor((rem%3600000)/60000);
+    var s = Math.floor((rem%60000)/1000);
+    hEl.textContent = pad(h); mEl.textContent = pad(m); sEl.textContent = pad(s);
+    requestAnimationFrame(function(){}); // no-op, keeps in sync with interval below
+  }
+  tick();
+  setInterval(tick, 1000);
+})();
+
+/* ---------------- VIDEO autoplay & fallback ---------------- */
+(function(){
+  var video = document.getElementById('heroVideo');
+  var fallback = document.getElementById('videoFallback');
+  if(!video) return;
+
+  function showFallback(){ if(fallback) fallback.style.display = 'flex'; }
+  function hideFallback(){ if(fallback) fallback.style.display = 'none'; }
+
+  // 1. Force muted for browser autoplay compliance
+  video.muted = true;
+  video.defaultMuted = true;
+
+  var playAttempt = function() {
+    var promise = video.play();
+    if (promise !== undefined) {
+      promise.then(function() {
+        hideFallback();
+      }).catch(function() {
+        showFallback();
+      });
+    }
+  };
+
+  // 2. Initial attempt
+  playAttempt();
+
+  // 3. Fallback: User interaction to play (unmutes on click)
+  if (fallback) {
+    fallback.addEventListener('click', function() {
+      video.muted = false;
+      video.play().then(hideFallback);
+    });
+  }
+
+  // 4. Robustness listeners
+  video.addEventListener('playing', hideFallback);
+  video.addEventListener('canplay', function() {
+    if (video.paused) playAttempt();
+  });
+
+  // Re-check if autoplay succeeded after a moment
+  setTimeout(function(){
+    if (video.paused) playAttempt();
+  }, 1500);
+
+  video.addEventListener('error', showFallback);
+})();
+
+/* ---------------- SCROLL REVEAL ---------------- */
+(function(){
+  var els = document.querySelectorAll('.reveal');
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }
+    });
+  }, { threshold:0.12 });
+  els.forEach(function(el){ obs.observe(el); });
+  // re-observe dynamically injected .reveal cards (services/testimonials rendered after this runs on DOMContentLoaded below)
+})();
+document.addEventListener('DOMContentLoaded', function(){
+  var els = document.querySelectorAll('.reveal:not(.visible)');
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }
+    });
+  }, { threshold:0.12 });
+  els.forEach(function(el){ obs.observe(el); });
+});
+
+/* ---------------- BOOKING TOAST (social proof) ---------------- */
+(function(){
+  var toast = document.getElementById('bookingToast');
+  var avatarEl = document.getElementById('toastAvatar');
+  var nameEl = document.getElementById('toastName');
+  var msgEl = document.getElementById('toastMsg');
+  var timeEl = document.getElementById('toastTime');
+  var closeBtn = document.getElementById('toastClose');
+  var idx = 0, hideTimer, dismissed = false;
+
+  var TIMES = ["just now","2 minutes ago","5 minutes ago","9 minutes ago","14 minutes ago","21 minutes ago"];
+
+  function show(){
+    if(dismissed) return;
+    var t = TOAST_NAMES[idx % TOAST_NAMES.length];
+    var color = CHAKRA_COLORS[idx % CHAKRA_COLORS.length];
+    var initials = t.name.split(' ').map(function(w){return w[0];}).join('');
+    avatarEl.style.background = color;
+    avatarEl.textContent = initials;
+    nameEl.textContent = t.name + ' · ' + t.loc;
+    msgEl.textContent = 'booked a ' + t.service + ' session';
+    timeEl.textContent = TIMES[idx % TIMES.length];
+    toast.classList.add('show');
+    idx++;
+    clearTimeout(hideTimer);
+    hideTimer = setTimeout(function(){ toast.classList.remove('show'); }, 5000);
+  }
+  closeBtn.addEventListener('click', function(){
+    dismissed = true;
+    toast.classList.remove('show');
+  });
+  setTimeout(function(){
+    show();
+    setInterval(show, 22000);
+  }, 6000);
+})();
+</script>
+</body>
+</html>
