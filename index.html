@@ -5,6 +5,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Mishthy Yog Sadhna | Reiki, Sound Healing & Counselling by Sapna Kulshreshtha</title>
 <meta name="description" content="Reiki Healing, Sound Healing & Personal Counselling with Sapna Kulshreshtha — Reiki Grand Master, Certified Hypnotherapist & Two-Time Josh Talks Speaker." />
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', 'YOUR_PIXEL_ID');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -324,19 +343,40 @@
     transition: opacity 0.5s ease;
   }
   .video-fallback{
-    position: absolute; top: 0; left: 0; z-index: 5;
-    display:none; flex-direction:column; align-items:center; justify-content:center; gap:14px;
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 5;
+    display:none; flex-direction:column; align-items:center; justify-content:center; gap:12px;
     background:
       radial-gradient(circle at 50% 30%, rgba(209,160,92,0.22), transparent 60%),
       radial-gradient(circle at 50% 90%, rgba(133,119,207,0.2), transparent 60%),
       linear-gradient(160deg, #241736, #150c20);
-    color:var(--muted); text-align:center; padding:20px;
+    color:var(--ink); text-align:center; padding:20px;
+    transition: all 0.4s ease;
+    cursor: pointer;
+  }
+  .video-fallback.muted-active{
+    background: linear-gradient(transparent 60%, rgba(21,12,32,0.85));
+    justify-content: flex-end;
+    padding-bottom: 30px;
+    gap: 8px;
   }
   .play-glyph{
-    width:60px; height:60px; border-radius:50%;
+    width:64px; height:64px; border-radius:50%;
     background:rgba(247,240,228,0.12); border:1px solid rgba(247,240,228,0.3);
-    display:grid; place-items:center; font-size:20px; color:var(--gold-soft);
+    display:grid; place-items:center; font-size:22px; color:var(--gold-soft);
+    transition: all 0.3s ease;
   }
+  .video-fallback.muted-active .play-glyph {
+    width: 44px; height: 44px; font-size: 18px;
+    background: var(--gold); color: #1a0f26;
+    animation: pulseVolume 2s infinite;
+  }
+  @keyframes pulseVolume {
+    0% { box-shadow: 0 0 0 0 rgba(209,160,92,0.6); }
+    70% { box-shadow: 0 0 0 12px rgba(209,160,92,0); }
+    100% { box-shadow: 0 0 0 0 rgba(209,160,92,0); }
+  }
+  .video-fallback small{ font-size:12px; font-weight: 700; color:var(--ink); letter-spacing: 0.02em; }
+  .video-fallback.muted-active small { text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
   .video-fallback small{ font-size:11.5px; color:var(--muted-2); max-width:220px; line-height:1.5; }
 
   /* countdown pill */
@@ -649,7 +689,7 @@
               <video id="heroVideo"
                      src="https://res.cloudinary.com/dzk8irkax/video/upload/q_auto,f_auto/Girls_Ladies_ki_problem_solve_call_-_8193935267_Misthy_yog_sadhna_maruti_state_near_simpk.mp4"
                      poster="https://res.cloudinary.com/dzk8irkax/video/upload/q_auto,f_auto/Girls_Ladies_ki_problem_solve_call_-_8193935267_Misthy_yog_sadhna_maruti_state_near_simpk.jpg"
-                     playsinline webkit-playsinline loop autoplay muted preload="auto" controls>
+                     playsinline webkit-playsinline loop autoplay preload="auto" controls>
               </video>
               <div class="video-fallback" id="videoFallback" style="cursor:pointer;">
                 <div class="play-glyph">▶</div>
@@ -901,28 +941,56 @@ var TOAST_NAMES = [
   var fallback = document.getElementById('videoFallback');
   if(!video) return;
 
-  function showFallback(){ if(fallback) fallback.style.display = 'flex'; }
+  function showFallback(msg, isMuted){
+    if(fallback) {
+      fallback.style.display = 'flex';
+      var strong = fallback.querySelector('strong');
+      var glyph = fallback.querySelector('.play-glyph');
+      var small = fallback.querySelector('small');
+
+      if(isMuted) {
+        fallback.classList.add('muted-active');
+        if(strong) strong.style.display = 'none';
+        if(glyph) glyph.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="margin-left:2px"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>';
+      } else {
+        fallback.classList.remove('muted-active');
+        if(strong) strong.style.display = 'block';
+        if(glyph) glyph.innerHTML = '▶';
+      }
+
+      if(msg && small) small.textContent = msg;
+    }
+  }
   function hideFallback(){ if(fallback) fallback.style.display = 'none'; }
 
-  // 1. Force muted for browser autoplay compliance
-  video.muted = true;
-  video.defaultMuted = true;
+  // Set default to unmuted as requested
+  video.muted = false;
+  video.volume = 1.0;
 
   var playAttempt = function() {
+    // Attempting autoplay with sound (unmuted)
     var promise = video.play();
     if (promise !== undefined) {
       promise.then(function() {
         hideFallback();
       }).catch(function() {
-        showFallback();
+        // Autoplay with sound was blocked.
+        // Attempt muted autoplay so the user at least sees motion
+        video.muted = true;
+        video.play().then(function() {
+          showFallback("Tap to unmute & listen", true);
+        }).catch(function() {
+          // Even muted autoplay blocked (e.g. Low Power Mode)
+          showFallback("Tap to play video", false);
+        });
       });
     }
   };
 
-  // 2. Initial attempt
+  // Initial attempt
   playAttempt();
 
-  // 3. Fallback: User interaction to play (unmutes on click)
+  // Fallback: User interaction to play/unmute with sound
   if (fallback) {
     fallback.addEventListener('click', function() {
       video.muted = false;
@@ -930,18 +998,23 @@ var TOAST_NAMES = [
     });
   }
 
-  // 4. Robustness listeners
-  video.addEventListener('playing', hideFallback);
-  video.addEventListener('canplay', function() {
-    if (video.paused) playAttempt();
+  // Global interaction to unmute if it's playing muted or not at all
+  var globalUnlock = function() {
+    if (video.paused || video.muted) {
+      video.muted = false;
+      video.play().then(hideFallback).catch(function(){});
+    }
+    document.removeEventListener('click', globalUnlock);
+    document.removeEventListener('touchstart', globalUnlock);
+  };
+  document.addEventListener('click', globalUnlock, {passive: true});
+  document.addEventListener('touchstart', globalUnlock, {passive: true});
+
+  video.addEventListener('playing', function() {
+    if (!video.muted) hideFallback();
   });
 
-  // Re-check if autoplay succeeded after a moment
-  setTimeout(function(){
-    if (video.paused) playAttempt();
-  }, 1500);
-
-  video.addEventListener('error', showFallback);
+  video.addEventListener('error', function() { showFallback("Video unavailable", false); });
 })();
 
 /* ---------------- SCROLL REVEAL ---------------- */
@@ -1000,6 +1073,40 @@ document.addEventListener('DOMContentLoaded', function(){
     show();
     setInterval(show, 22000);
   }, 6000);
+})();
+
+/* ---------------- META PIXEL EVENTS ---------------- */
+(function(){
+  // 1. Lead Tracking (WhatsApp & Call)
+  function trackLead(e) {
+    fbq('track', 'Lead');
+  }
+
+  // Attach to all WhatsApp links
+  document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp.com"]').forEach(function(el) {
+    el.addEventListener('click', trackLead);
+  });
+
+  // Attach to all Call links
+  document.querySelectorAll('a[href^="tel:"]').forEach(function(el) {
+    el.addEventListener('click', trackLead);
+  });
+
+  // 2. ViewContent Tracking (Fires when services section is viewed)
+  var servicesSection = document.getElementById('services');
+  if (servicesSection) {
+    var hasFiredViewContent = false;
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting && !hasFiredViewContent) {
+          fbq('track', 'ViewContent', { content_name: 'Services Section' });
+          hasFiredViewContent = true; // Fire once per session
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    observer.observe(servicesSection);
+  }
 })();
 </script>
 </body>
